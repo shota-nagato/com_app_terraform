@@ -3,7 +3,7 @@ terraform {
   backend "s3" {
     bucket         = "comapp-terraform-tfstate"
     key            = "dev/terraform.tfstate"
-    region         = var.region
+    region         = "ap-northeast-1"
     dynamodb_table = "comapp-terraform-tfstate-locking"
     encrypt        = true
   }
