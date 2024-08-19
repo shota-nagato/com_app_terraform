@@ -12,3 +12,12 @@ module "subnet" {
   vpc_id      = module.vpc.vpc_id
   subnets     = var.subnets
 }
+
+module "route_table" {
+  source                 = "../../modules/route_table"
+  name                   = var.name
+  environment            = var.environment
+  vpc_id                 = module.vpc.vpc_id
+  destination_cidr_block = "0.0.0.0/0"
+  gateway_id             = module.vpc.internet_gateway_id
+}
