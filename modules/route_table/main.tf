@@ -10,3 +10,10 @@ resource "aws_route_table" "public" {
     Name = "${var.name}-${var.environment}-route-table"
   }
 }
+
+resource "aws_route_table_association" "public" {
+  for_each = { for idx, id in var.subnet_ids : idx => id }
+
+  subnet_id      = each.value
+  route_table_id = aws_route_table.public.id
+}

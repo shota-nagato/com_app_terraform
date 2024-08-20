@@ -20,4 +20,5 @@ module "route_table" {
   vpc_id                 = module.vpc.vpc_id
   destination_cidr_block = "0.0.0.0/0"
   gateway_id             = module.vpc.internet_gateway_id
+  subnet_ids             = { for idx, id in module.subnet.public_subnet_ids : idx => id }
 }
