@@ -14,6 +14,26 @@ variable "vpc_cidr" {
   default = "10.0.0.0/16"
 }
 
+variable "cidr_ipv4" {
+  default = "0.0.0.0/0"
+}
+
+variable "cidr_ipv6" {
+  default = "::/0"
+}
+
+variable "http_ports" {
+  default = {
+    from_port   = 80
+    to_port     = 80
+    ip_protocol = "tcp"
+  }
+}
+
+variable "all_traffic_ip_protocol" {
+  type = string
+}
+
 variable "subnets" {
   default = {
     public_subnets = {
