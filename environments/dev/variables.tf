@@ -31,7 +31,7 @@ variable "http_ports" {
 }
 
 variable "all_traffic_ip_protocol" {
-  type = string
+  default = "-1"
 }
 
 variable "subnets" {
