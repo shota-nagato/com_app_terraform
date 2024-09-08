@@ -24,11 +24,12 @@ module "route_table" {
 }
 
 module "security_group" {
-  source      = "../../modules/security_group"
-  name        = var.name
-  environment = var.environment
-  vpc_id      = module.vpc.vpc_id
-  cidr_ipv4   = var.cidr_ipv4
-  cidr_ipv6   = var.cidr_ipv6
-  http_ports  = var.http_ports
+  source                  = "../../modules/security_group"
+  name                    = var.name
+  environment             = var.environment
+  vpc_id                  = module.vpc.vpc_id
+  cidr_ipv4               = var.cidr_ipv4
+  cidr_ipv6               = var.cidr_ipv6
+  http_ports              = var.http_ports
+  all_traffic_ip_protocol = var.all_traffic_ip_protocol
 }
